@@ -7,6 +7,7 @@ public class LoginController : MonoBehaviour
     [SerializeField] private TMP_InputField _loginInput;
     [SerializeField] private TMP_InputField _passwordInput;
     [SerializeField] private Button _loginButton;
+    [SerializeField] private TextMeshProUGUI _errorText;
 
     private ServerManager _serverManager;
 
@@ -29,11 +30,15 @@ public class LoginController : MonoBehaviour
 
         if (response == null)
         {
+            _errorText.gameObject.SetActive(true); 
             Debug.Log("Login or password is incorrect");
         }
         else
         {
-            Debug.Log($"Successful authorization!\n Access Token: {response.accessToken.token}");
+            _errorText.gameObject.SetActive(false); 
+            Debug.Log($"Access Token: \n" +
+                      $" token: {response.accessToken.token} \n" +
+                      $" expiresIn: {response.accessToken.expiresIn}");
         }
     }
 }
