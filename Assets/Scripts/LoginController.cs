@@ -33,13 +33,7 @@ public class LoginController : MonoBehaviour
         }
         else
         {
-            var json = JsonUtility.FromJson<LoginResponse>(response);
-            Debug.Log($"Successful authorization!\n Access Token: {json.accessToken}");
+            Debug.Log($"Successful authorization!\n Access Token: {response.accessToken.token}");
         }
-    }
-
-    private class LoginResponse
-    {
-        public string accessToken;
     }
 }
