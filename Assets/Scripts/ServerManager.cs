@@ -34,19 +34,12 @@ public class ServerManager
 [Serializable]
 public class AuthResponse
 {
-    public AccessTokenResponse accessToken;
-    public RefreshTokenResponse refreshToken;
+    public TokenResponse accessToken;
+    public TokenResponse refreshToken;
 }
 
 [Serializable]
-public class AccessTokenResponse
-{
-    public string token;
-    public long expiresIn;
-}
-
-[Serializable]
-public class RefreshTokenResponse
+public class TokenResponse
 {
     public string token;
     public long expiresIn;
